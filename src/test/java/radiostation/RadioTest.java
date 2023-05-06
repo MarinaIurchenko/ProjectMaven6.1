@@ -118,7 +118,7 @@ public class RadioTest
     public void radioZeroVolume(){
         Radio cond = new Radio();
 
-        cond.setIncreaseRadioVolumen(0);
+        cond.setReduceRadioVolume(0);
 
         int expected = 0;
         int actual = cond.getRadioVolume();
@@ -129,7 +129,7 @@ public class RadioTest
     public void radioOneVolume(){
         Radio cond = new Radio();
 
-        cond.setIncreaseRadioVolumen(1);
+        cond.setReduceRadioVolume(1);
 
         int expected = 1;
         int actual = cond.getRadioVolume();

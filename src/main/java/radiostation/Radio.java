@@ -1,4 +1,5 @@
 package radiostation;
+
 public class Radio {
     private int radioVolume;
     private int numberStation;
@@ -38,21 +39,21 @@ public class Radio {
         if (radioIncreaseVolume < 100) {
             radioVolume = radioIncreaseVolume + 1;
         }
-        if (radioIncreaseVolume == 100){
+        if (radioIncreaseVolume == 100) {
             radioVolume = 100;
         }
         if (radioIncreaseVolume > 100) {
             return;
         }
-        radioVolume = radioIncreaseVolume;
-    }
-
-    public void setReduceRadioVolume(int radioReduceVolume) {
-        if (radioReduceVolume >= 0) {
-            radioReduceVolume = radioReduceVolume + 1;
+            radioVolume = radioIncreaseVolume;
         }
-        if (radioReduceVolume < 0) {
-            return;
+
+        public void setReduceRadioVolume ( int radioReduceVolume){
+            if (radioReduceVolume > 0) {
+                radioVolume = radioReduceVolume;
+            }
+            if (radioReduceVolume < 0) {
+                return;
         }
         radioVolume = radioReduceVolume;
     }
