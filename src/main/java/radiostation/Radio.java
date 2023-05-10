@@ -6,6 +6,7 @@ public class Radio {
 
 
     public int getNumberStation() {
+
         return numberStation;
     }
 
@@ -37,7 +38,7 @@ public class Radio {
 
     public void setIncreaseRadioVolumen(int radioIncreaseVolume) {
         if (radioIncreaseVolume < 100) {
-            radioVolume = radioIncreaseVolume + 1;
+            radioVolume = radioIncreaseVolume;
         }
         if (radioIncreaseVolume == 100) {
             radioVolume = 100;
@@ -45,15 +46,15 @@ public class Radio {
         if (radioIncreaseVolume > 100) {
             return;
         }
-            radioVolume = radioIncreaseVolume;
-        }
+        radioVolume = radioIncreaseVolume;
+    }
 
-        public void setReduceRadioVolume ( int radioReduceVolume){
-            if (radioReduceVolume > 0) {
-                radioVolume = radioReduceVolume;
-            }
-            if (radioReduceVolume < 0) {
-                return;
+    public void setReduceRadioVolume(int radioReduceVolume) {
+        if (radioReduceVolume > 0) {
+            radioVolume = radioReduceVolume;
+        }
+        if (radioReduceVolume < 0) {
+            return;
         }
         radioVolume = radioReduceVolume;
     }
