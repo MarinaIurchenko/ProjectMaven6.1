@@ -1,63 +1,55 @@
 package radiostation;
 
 public class Radio {
-    private int radioVolume;
-    private int numberStation;
+    private int minRadioVolume = 0;
+    private int maxRadioVolume = 100;
+    private int autoRadioVolume = minRadioVolume;
 
 
-    public int getNumberStation() {
+    private int minNumberStation = 0;
+    private int excessNumberStation = 10;
+    private int maxNumberStation = excessNumberStation - 1;
+    private int currentNumberStation = minNumberStation;
 
-        return numberStation;
+    public int getMaxRadioVolume() {
+        return maxRadioVolume;
     }
 
-    public void setNextNumberStation(int newNextStation) {
+    public int getMinRadioVolume() {
+        return minRadioVolume;
+    }
 
-        if (newNextStation <= 9) {
-            numberStation = newNextStation;
-        }
-        if (newNextStation > 9) {
+    public int getAutoRadioVolume() {
+        return autoRadioVolume;
+    }
+
+    public int getExcessNumberStation() {
+        return excessNumberStation;
+    }
+
+    public int getMinNumberStation() {
+        return minNumberStation;
+    }
+
+    public int getMaxNumberStation() {
+        return maxNumberStation;
+    }
+
+    public int getCurrentNumberStation() {
+        return currentNumberStation;
+    }
+
+    public Radio(int excessNumberStation) {
+        if (excessNumberStation < minNumberStation) {
             return;
+        } else {
+            this.excessNumberStation = excessNumberStation;
         }
-        numberStation = newNextStation;
+        this.maxNumberStation = excessNumberStation;
     }
 
-    public void setPrevNumberStation(int newPrevStation) {
-        if (newPrevStation >= 0) {
-            numberStation = newPrevStation;
-        }
-        if (newPrevStation < 0) {
-            return;
-        }
-        numberStation = newPrevStation;
-    }
+    public Radio() {
 
-
-    public int getRadioVolume() {
-        return radioVolume;
-    }
-
-    public void setIncreaseRadioVolumen(int radioIncreaseVolume) {
-        if (radioIncreaseVolume < 100) {
-            radioVolume = radioIncreaseVolume;
-        }
-        if (radioIncreaseVolume == 100) {
-            radioVolume = 100;
-        }
-        if (radioIncreaseVolume > 100) {
-            return;
-        }
-        radioVolume = radioIncreaseVolume;
-    }
-
-    public void setReduceRadioVolume(int radioReduceVolume) {
-        if (radioReduceVolume > 0) {
-            radioVolume = radioReduceVolume;
-        }
-        if (radioReduceVolume < 0) {
-            return;
-        }
-        radioVolume = radioReduceVolume;
-        System.out.println("radio");
     }
 
 }
