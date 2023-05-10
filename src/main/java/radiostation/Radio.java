@@ -57,6 +57,7 @@ public class Radio {
             return;
         }
         radioVolume = radioReduceVolume;
+        System.out.println("radio");
     }
 
 }
