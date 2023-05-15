@@ -9,6 +9,7 @@ public class Radio {
 
         return numberStation;
     }
+
     public void setNumberStation(int numberStation) {
 
         if (numberStation < 0) {
@@ -17,32 +18,35 @@ public class Radio {
         if (numberStation > 9) {
             return;
         }
-       this.numberStation = numberStation;
+        this.numberStation = numberStation;
     }
+
     public void NextNumberStation() {
         if (numberStation != 9) {
             numberStation++;
-        }else {
+        } else {
             numberStation = 0;
         }
     }
 
-    public void PrevNumberStation(){
-        if (numberStation != 0){
+    public void PrevNumberStation() {
+        if (numberStation != 0) {
             numberStation--;
-        }else {
+        } else {
             numberStation = 0;
         }
     }
+
     public int getRadioVolume() {
         return radioVolume;
     }
+
     public void setRadioVolumen(int radioVolume) {
 
         if (radioVolume > 100) {
             return;
         }
-        if (radioVolume < 0){
+        if (radioVolume < 0) {
             return;
         }
         this.radioVolume = radioVolume;
