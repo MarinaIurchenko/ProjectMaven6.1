@@ -9,54 +9,45 @@ public class Radio {
 
         return numberStation;
     }
+    public void setNumberStation(int numberStation) {
 
-    public void setNextNumberStation(int newNextStation) {
-
-        if (newNextStation <= 9) {
-            numberStation = newNextStation;
-        }
-        if (newNextStation > 9) {
+        if (numberStation < 0) {
             return;
         }
-        numberStation = newNextStation;
-    }
-
-    public void setPrevNumberStation(int newPrevStation) {
-        if (newPrevStation >= 0) {
-            numberStation = newPrevStation;
-        }
-        if (newPrevStation < 0) {
+        if (numberStation > 9) {
             return;
         }
-        numberStation = newPrevStation;
+       this.numberStation = numberStation;
+    }
+    public void NextNumberStation() {
+        if (numberStation != 9) {
+            numberStation++;
+        }else {
+            numberStation = 0;
+        }
     }
 
-
+    public void PrevNumberStation(){
+        if (numberStation != 0){
+            numberStation--;
+        }else {
+            numberStation = 0;
+        }
+    }
     public int getRadioVolume() {
         return radioVolume;
     }
+    public void setRadioVolumen(int radioVolume) {
 
-    public void setIncreaseRadioVolumen(int radioIncreaseVolume) {
-        if (radioIncreaseVolume < 100) {
-            radioVolume = radioIncreaseVolume;
-        }
-        if (radioIncreaseVolume == 100) {
-            radioVolume = 100;
-        }
-        if (radioIncreaseVolume > 100) {
+        if (radioVolume > 100) {
             return;
         }
-        radioVolume = radioIncreaseVolume;
-    }
-
-    public void setReduceRadioVolume(int radioReduceVolume) {
-        if (radioReduceVolume > 0) {
-            radioVolume = radioReduceVolume;
-        }
-        if (radioReduceVolume < 0) {
+        if (radioVolume < 0){
             return;
         }
-        radioVolume = radioReduceVolume;
+        this.radioVolume = radioVolume;
+
+
     }
 
 }
