@@ -1,55 +1,77 @@
 package radiostation;
 
 public class Radio {
-    private int minRadioVolume = 0;
-    private int maxRadioVolume = 100;
-    private int autoRadioVolume = minRadioVolume;
+
     private int minNumberStation = 0;
-    private int maxNumberStation = 9;
-    private int excessNumberStation = 10;
+    private int quantityStation = 10;
+    private int currentNumberStation;
+    private int maxNumberStation;
+    private int currentVolume;
+    private int minVolume = 0;
+    private int maxVolume = 100;
 
-    private int currentNumberStation = minNumberStation;
 
-    public Radio(int excessNumberStation) {
-        if (excessNumberStation < minNumberStation) {
-            return;
-        } else {
-            this.excessNumberStation = excessNumberStation;
-        }
-        this.maxNumberStation = excessNumberStation;
+    public Radio(int quantityStation) {
+
+        this.maxNumberStation = quantityStation - 1;
     }
 
-    public Radio() {
-
-    }
-
-    public int getMaxRadioVolume() {
-        return maxRadioVolume;
-    }
-
-    public int getMinRadioVolume() {
-        return minRadioVolume;
-    }
-
-    public int getAutoRadioVolume() {
-        return autoRadioVolume;
-    }
-
-    public int getExcessNumberStation() {
-        return excessNumberStation;
-    }
-
-    public int getMinNumberStation() {
-        return minNumberStation;
-    }
-
-    public int getMaxNumberStation() {
-        return maxNumberStation;
-    }
 
     public int getCurrentNumberStation() {
+
         return currentNumberStation;
     }
 
+    public void setCurrentNumberStation(int newCurrentNumberStation) {
+        if (newCurrentNumberStation < minNumberStation) {
+            return;
+        }
+        if (newCurrentNumberStation > maxNumberStation) {
+            return;
+        }
+        currentNumberStation = newCurrentNumberStation;
+    }
 
+    public void nextNumberStation() {
+        if (currentNumberStation < maxNumberStation) {
+            currentNumberStation = currentNumberStation + 1;
+        } else {
+            currentNumberStation = minNumberStation;
+        }
+    }
+
+    public void prevNumberStation() {
+        if (currentNumberStation > minNumberStation) {
+            currentNumberStation = currentNumberStation - 1;
+        } else {
+            currentNumberStation = maxNumberStation;
+        }
+    }
+
+    public int getCurrentVolume() {
+
+        return currentVolume;
+    }
+
+    public void setCurrentVolume(int newCurrentVolume) {
+        if (newCurrentVolume < minVolume) {
+            newCurrentVolume = minVolume;
+        }
+        if (newCurrentVolume > maxVolume) {
+            newCurrentVolume = maxVolume;
+        }
+        currentVolume = newCurrentVolume;
+    }
+
+    public void increaseVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume = currentVolume + 1;
+        }
+    }
+
+    public void reduceVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume = currentVolume - 1;
+        }
+    }
 }
